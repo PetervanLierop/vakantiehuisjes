@@ -164,9 +164,6 @@ public class Accommodation {
 
     public boolean isAvailable(Date startDate, Date endDate) {
         List<Booking> bookings = BookingDB.selectAllBookings(this.id);
-        int i = 5;
-        i ++;
-        int y = i;
         return (checkAvailability(startDate, endDate, bookings));
     }
 
