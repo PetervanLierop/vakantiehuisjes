@@ -164,6 +164,20 @@ public class Accommodation {
 
     public boolean isAvailable(Date startDate, Date endDate) {
         List<Booking> bookings = BookingDB.selectAllBookings(this.id);
+        return (checkAvailability(startDate, endDate, bookings));
+    }
+
+    /**
+     *
+     * @param startDate
+     * @param endDate
+     * @param bookings
+     * @return
+     */
+    public boolean checkAvailability(
+            Date startDate,
+            Date endDate,
+            List<Booking> bookings) {
         Iterator<Booking> iterator = bookings.iterator();
         while (iterator.hasNext()) {
             Booking booking = iterator.next();
@@ -268,17 +282,17 @@ public class Accommodation {
     public List<String> getAllPriceLevelDescriptions() {
 //        all rental rates have same pricelevels, so first one is OK 
         Map.Entry<String, RentalRates> entry = priceLevels.entrySet().iterator().next();
-        RentalRates rentalRates = entry.getValue();  
+        RentalRates rentalRates = entry.getValue();
         List<PeriodPrice> periodPrices = rentalRates.getPeriodPrices();
         List<String> allPriceLevelDescriptions = new LinkedList<String>();
         for (PeriodPrice periodPrice : periodPrices) {
-		allPriceLevelDescriptions.add(periodPrice.getPriceLevel().getDescription());
-	}
+            allPriceLevelDescriptions.add(periodPrice.getPriceLevel().getDescription());
+        }
         return allPriceLevelDescriptions;
     }
 
     public void setPriceLevel(PriceLevel priceLevel) {
-         for (String userRoleDescription : priceLevels.keySet()) {
+        for (String userRoleDescription : priceLevels.keySet()) {
             List<PeriodPrice> periodPrices = priceLevels.get(userRoleDescription).getPeriodPrices();
             Iterator<PeriodPrice> iterator = periodPrices.iterator();
             boolean found = false;
