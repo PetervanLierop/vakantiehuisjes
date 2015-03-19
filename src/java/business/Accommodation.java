@@ -8,6 +8,7 @@ import data.BookingDB;
 import data.PriceDB;
 import data.PriceLevelDB;
 import data.UserRoleDB;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Iterator;
@@ -21,7 +22,7 @@ import util.CurrencyEnum;
  *
  * @author Peter
  */
-public class Accommodation {
+public class Accommodation  implements Serializable  {
 
     private int id;
     private String name;

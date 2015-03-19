@@ -1,0 +1,82 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <div class="wrapper">
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <head>
+        <div class="header"> 
+            <link rel="stylesheet" type="text/css" href="CSS/mystyle1.css" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Vakantiehuisje</title>
+            <header_text>
+                <h1>Vakantiehuisje</h1></p>
+                U bent aangemeld als: ${currentUser.firstName}<br>
+                <font color="red"><strong><i>${message}</i></strong></font>
+                <ul align="center">
+                    <li><a href="<c:url value='index.jsp'/>">Uitloggen</a></li>
+                    <li><a href="<c:url value='changePassword.jsp'/>">Aanpassen van wachtwoord</a></li>
+                    <li><a href="<c:url value='userDetails.jsp'/>">Aanpassen van persoonlijke gegevens</a></li>
+                </ul>
+            </header_text>
+        </div>
+        <hr>
+        </head>
+        <body>
+            <script language="javascript" type="text/javascript"
+                    src="javascripts/myjavascript.js">
+            </script>
+            <div class="nav">
+                <img src="images/${currentAccommodation.name}.gif" width="150" height="100" /><br>
+                ${currentAccommodation.name}<br><br>
+                <ul>
+                    <li><a href="mainMenu.jsp">Selecteer accommodatie</a></li>
+                    <li><a href='RatesAndLocation'>Informatie over ${currentAccommodation.name}</a></li>
+                    <li>Boekingen voor ${currentAccommodation.name}
+                        <ul>
+                            <li><a href='CollectBookings'>Overzicht</a></li>
+                            <li><a href='AddBooking'>Doe een boeking</a></li>
+                        </ul>
+                    </li>
+                    <li>Rekeningen
+                        <ul>
+                            <li><a href='ShowInvoice'>Overzicht</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar">
+                <c:if test="${isAdministrator}">
+                    <h2>Administratie</h2>
+                    <ul>
+                        <li>Gebruikersrollen</li>
+                        <ul>
+                            <li><a href='ShowUserRoles'>Overzicht</a></li>
+                            <li><a href='AddUserRole'>Toevoegen</a></li>
+                        </ul>
+                        </li>
+                        <li>Gebruikers</li>
+                        <ul>
+                            <li><a href='CollectUsers'>Overzicht</a></li>
+                            <li><a href='AddUser'>Toevoegen</a></li>
+                        </ul>
+                        <li>Tarieven</li>
+                        <ul>
+                            <li><a href='CollectPriceLevels'>Overzicht</a></li>
+                            <li><a href='addPriceLevel.jsp'>Toevoegen</a></li>
+                        </ul>
+                        <li>Tarieven voor ${currentAccommodation.name}</a></li>
+                        <ul>
+                            <li><a href='RentalPrices'>Overzicht</a></li>
+                            <li><a href='AddPriceLevelToAccommodation'>Toevoegen</a></li>
+                            <li><a href='CollectPriceLevelsAccommodation'>Verwijderen</a></li>
+                        </ul>
+                        <li><a href='maintenanceUserRole.jsp'>Accommodaties</a></li>
+                        <ul>
+                            <li><a href='ReturnBookingTableAsExcel'>Boekingen exporteren naar excel</a></li>
+                        </ul>
+                        <li><a href='expenses.jsp'>Onkosten</a></li>
+                        <li><a href='get_request_header.jsp'>Test Browser</a></li>
+                    </ul>
+                </c:if>
+            </div>    

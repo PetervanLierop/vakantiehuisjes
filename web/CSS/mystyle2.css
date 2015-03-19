@@ -1,0 +1,61 @@
+/* 
+    Document   : mystyle2
+    Created on : 29-jul-2013, 14:37:00
+    Author     : Peter
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    font-family:"Tahoma", Geneva, sans-serif;
+    background-color:white;
+}
+
+div.header {
+    background-image:url("../images/panorama60.gif");
+    background-size: 100% 100%;
+}
+
+header_text {
+    display: block;
+    padding-left: 40%;
+}
+
+div.nav {
+    float:left;
+    width: 25%;
+    background:ghostwhite;
+}
+ 
+div.sidebar {
+    float:right;
+    width: 25%;
+    background:ghostwhite;
+}
+
+div.main {
+    float:left;
+    width: 50%;
+    background:blue;
+    overflow: auto;
+}
+
+div.footer {
+    clear:both;
+    background:ghostwhite;
+}
+
+/*div.nav ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+    }
+div.nav li {
+    display:inline;
+    margin:0;
+    padding:0;
+    }*/
